@@ -1,4 +1,13 @@
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Kapshtyk_cs-fullstack-project-backend&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Kapshtyk_cs-fullstack-project-backend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Kapshtyk_cs-fullstack-project-backend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Kapshtyk_cs-fullstack-project-backend)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Kapshtyk_cs-fullstack-project-backend&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Kapshtyk_cs-fullstack-project-backend)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Kapshtyk_cs-fullstack-project-backend&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Kapshtyk_cs-fullstack-project-backend)
 # E-commerce App - Backend for Crazy Shop
+![C# Badge](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![.Net Badge](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Microsoft Azure Badge](https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![Redis Badge](https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white)
 ## Overview
 Crazy Shop is a modern web application designed to manage e-commerce operations. It includes functionalities for creating, reading, updating and deleting categories, products, users and other entities necessary for an online shop.
 
