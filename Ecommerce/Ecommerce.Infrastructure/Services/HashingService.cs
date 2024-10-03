@@ -19,7 +19,7 @@ namespace Ecommerce.Infrastructure.Services
                     password: originalValue,
                     salt: salt,
                     prf: KeyDerivationPrf.HMACSHA256,
-                    iterationCount: 10000,
+                    iterationCount: 100000,
                     numBytesRequested: 32
                 )
             );
@@ -33,7 +33,7 @@ namespace Ecommerce.Infrastructure.Services
                    password: inputValue,
                     salt: salt,
                     prf: KeyDerivationPrf.HMACSHA256,
-                    iterationCount: 10000,
+                    iterationCount: 100000,
                     numBytesRequested: 32
                 )
             );
