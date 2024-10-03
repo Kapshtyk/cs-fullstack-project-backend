@@ -15,7 +15,7 @@ Crazy Shop is a modern web application designed to manage e-commerce operations.
 
 [Frontend link](http://crazy-shop.zapto.org)
 
-[Frontend repo link](https://github.com/Kapshtyk/cs-fullstack-project-frontend/tree/main)
+[Frontend repo link](https://github.com/Kapshtyk/cs-fullstack-project-frontend)
 
 Admin credentials: 
    - email: test@user.com
