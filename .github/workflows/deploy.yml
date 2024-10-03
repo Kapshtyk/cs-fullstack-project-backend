@@ -1,0 +1,62 @@
+name: Build, Push Docker Images and Deploy
+
+on: [push]
+env:
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
+jobs:
+  build_and_push_backend:
+    name: Build and Push Backend Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Docker
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.USERNAME_DOCKER_HUB }}
+          password: ${{ secrets.PASSWORD_DOCKER_HUB }}
+
+      - name: Build and Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: ./Ecommerce
+          push: true
+          file: ./Ecommerce/Dockerfile
+          tags: ${{ secrets.USERNAME_DOCKER_HUB }}/ecommerce-backend:latest
+  deploy:
+    if: github.ref_name == ${{ vars.CONDITION }} 
+    runs-on: ubuntu-latest
+    needs: build_and_push_backend
+    steps:   
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Copy nginx.conf and docker-compose.yml via ssh
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "cicd/nginx/nginx.conf, cicd/docker-compose.yml"
+          target: deploy
+          strip_components: 1
+          
+      - name: Execute remote SSH commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd deploy
+            touch .env
+            echo "JWT_PRIVATE_KEY=${{ secrets.JWT_PRIVATE_KEY }}" >> .env
+            echo "ALLOWED_ORIGIN=${{ secrets.ALLOWED_ORIGIN }}" >> .env
+            sudo docker-compose down
+            sudo docker pull ${{ secrets.USERNAME_DOCKER_HUB }}/ecommerce-backend:latest
+            sudo docker-compose up -d

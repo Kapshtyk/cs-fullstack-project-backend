@@ -1,0 +1,95 @@
+{
+  "definitions": {
+    "IFormFile": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ContentType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ContentDisposition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Headers": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "Length": {
+          "type": "integer"
+        },
+        "Name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "FileName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "ContentType",
+        "ContentDisposition",
+        "Headers",
+        "Length",
+        "Name",
+        "FileName"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "CategoryImage": {
+      "$ref": "#/definitions/IFormFile"
+    },
+    "CategoryImagePath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ParentCategoryId": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "Name",
+    "CategoryImage",
+    "CategoryImagePath",
+    "ParentCategoryId"
+  ]
+}
