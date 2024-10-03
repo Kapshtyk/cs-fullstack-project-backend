@@ -118,11 +118,11 @@ The tests layer contains unit tests to ensure the correctness of the application
 
 1. Clone the repository:
 ```
-git clone git@github.com:Kapshtyk/fs18_CSharp_Teamwork.git
+git clone git@github.com:Kapshtyk/cs-fullstack-project-backend.git
 ```
 2. Navigate to the project directory:
 ```
-cd fs18_CSharp_Teamwork/Ecommerce/
+cd cs-fullstack-project-backend/Ecommerce/
 ```
 3. Restore dependencies:
 ```
