@@ -6,7 +6,7 @@ Crazy Shop is a modern web application designed to manage e-commerce operations.
 
 [Frontend link](http://crazy-shop.zapto.org)
 
-[Frontend repo link](https://github.com/Kapshtyk/fs18_CSharp_FullStack_Frontend/tree/main)
+[Frontend repo link](https://github.com/Kapshtyk/cs-fullstack-project-frontend/tree/main)
 
 Admin credentials: 
    - email: test@user.com
@@ -46,46 +46,7 @@ Admin credentials:
 
 ## Project structure
 
-```
-.github/
-    pull_request_template.md
-    workflows/
-        check.yml
-        deploy.tml
-.gitignore
-.vscode/
-    settings.json
-cicd/
-   nginx/
-      nginx.conf
-   docker-compose.local.yml
-   docker-compose.yml    
-Ecommerce/
-    Ecommerce.Controllers/
-        AppController.cs
-        AuthController.cs
-        CartItemController.cs
-        CategoryController.cs
-        FrontPageController.cs
-        OrderController.cs
-        ProductController.cs
-        ReviewController.cs
-        UserController.cs
-        CustomAuthorization/
-        CustomMiddleware/
-        CustomExceptions/
-        ...
-    Ecommerce.Domain/
-    Ecommerce.Infrastructure/
-    Ecommerce.Services/
-    Ecommerce.sln
-    Ecommerce.Tests/
-README.md
-```
-
-### Layers and entities
-#### Controllers
-
+### Controllers
 Controllers process HTTP requests and return responses. They act as an interface between the client and the server-side logic.
 
 - AuthController: Manages user authentication, authorisation and token updates.
@@ -99,7 +60,7 @@ Controllers process HTTP requests and return responses. They act as an interface
 
 There is also exception handling middleware that provides additional functionality, such as specific ways of handling SQL exceptions and generating JSON-friendly output.
 
-#### Services
+### Services
 Services contain the application's business logic. They interact with repositories to perform operations on the data.
 
 - AuthService: Handles user login, logout and token updates.
@@ -111,7 +72,7 @@ Services contain the application's business logic. They interact with repositori
 - CartItemService: Manages the business logic for shopping cart items.
 - FrontPageService: Manages front pages.
 
-#### Repositories
+### Repositories
 Repositories encapsulate the logic required to access data sources. They provide an abstraction layer over the database.
 
 - CategoryRepository: Handles data operations for categories.
@@ -120,7 +81,7 @@ Repositories encapsulate the logic required to access data sources. They provide
 - OrderRepository: Handles data operations for orders.
 - ReviewRepository: Handles data operations for reviews.
 
-#### Domain
+### Domain
 The domain layer contains the core entities and interfaces of the application.
 
 - Entities: Represent the data models, such as Category, Product, User, Order, and Review.
@@ -130,9 +91,7 @@ ERD diagram describing the database structure:
 
 ![ERD](https://github.com/user-attachments/assets/08b1fa43-78e8-4bfa-b163-feb9006f2ee6)
 
-
-
-#### Infrastructure
+### Infrastructure
 The infrastructure layer contains the implementation of repositories, the database context, and additional services.
 
 - EcommerceContext: The Entity Framework Core database context.
@@ -143,7 +102,7 @@ In the repository, there are many implemented SQL functions, for example, a func
 
 There are also a number of infrastructure layer services, such as Hashing Service (for hashing passwords and tokens), File Service (for handling images) and Token Service (for issuing and validating access and update tokens).
 
-#### Tests
+### Tests
 The tests layer contains unit tests to ensure the correctness of the application.
 
 ## Installation
