@@ -65,7 +65,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<EcommerceContext>();
-        context.Database.Migrate();
+        await context.Database.MigrateAsync();
     }
     catch (Exception ex)
     {
@@ -74,7 +74,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.Run();
+await app.RunAsync();
 
 void ConfigureServices(IServiceCollection services, IConfiguration configuration)
 {

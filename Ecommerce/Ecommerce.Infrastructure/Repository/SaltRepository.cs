@@ -29,7 +29,7 @@ namespace Ecommerce.Infrastructure.Repository
                 {
                     _ecommerceContext.SaltUsers.Update(new SaltUser { UserId = user.Id, Salt = salt, User = user });
                 }
-                _ecommerceContext.SaveChanges();
+                _ecommerceContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception)

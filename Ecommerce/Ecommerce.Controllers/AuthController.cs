@@ -3,6 +3,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using Ecommerce.Services.AuthService.Intefaces;
 using FluentValidation.Results;
 using Ecommerce.Services.AuthService.DTO;
+using Ecommerce.Services.AuthService.Exceptions;
 using static Ecommerce.Services.AuthService.DTO.LoginCredentialsDto;
 using static Ecommerce.Services.AuthService.DTO.RefreshTokenDto;
 using Microsoft.AspNetCore.Authorization;
@@ -54,7 +55,7 @@ namespace Ecommerce.Controllers
         [Authorize]
         public async Task<ActionResult> Logout()
         {
-            var token = await HttpContext.GetTokenAsync("access_token") ?? throw new Exception("Token is invalid");
+            var token = await HttpContext.GetTokenAsync("access_token") ?? throw new InvalidTokenException();
             await _authService.LogoutAsync(token);
             return Ok();
         }

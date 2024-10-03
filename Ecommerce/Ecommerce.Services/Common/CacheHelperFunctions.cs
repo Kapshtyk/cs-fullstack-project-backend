@@ -58,7 +58,7 @@ namespace Ecommerce.Services.Common
                 if (cachedValue == "DELETED") throw new EntityNotFoundException<T>();
 
                 var entity = JsonSerializer.Deserialize<TReadDto>(cachedValue);
-                if (entity != null)
+                if (!EqualityComparer<TReadDto>.Default.Equals(entity, default(TReadDto)))
                 {
                     return entity;
                 }

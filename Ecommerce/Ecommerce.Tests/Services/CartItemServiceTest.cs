@@ -28,14 +28,14 @@ namespace Ecommerce.Tests.Services
         {
             _mockCartItemRepo
                 .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
-                .ThrowsAsync(new CartItemNotFoundExcepiton());
+                .ThrowsAsync(new CartItemNotFoundException());
 
             var dto = new PartialUpdateCartItemDto
             {
                 Quantity = 3
             };
 
-            await Assert.ThrowsAsync<CartItemNotFoundExcepiton>(() => _cartItemService.UpdateAsync(dto, 1));
+            await Assert.ThrowsAsync<CartItemNotFoundException>(() => _cartItemService.UpdateAsync(dto, 1));
 
             _mockCartItemRepo.Verify(repo => repo.GetByIdAsync(1), Times.Once);
             _mockCartItemRepo.Verify(repo => repo.UpdateAsync(It.IsAny<CartItem>()), Times.Never);
@@ -124,9 +124,9 @@ namespace Ecommerce.Tests.Services
         {
             _mockCartItemRepo
                 .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
-                .ThrowsAsync(new CartItemNotFoundExcepiton());
+                .ThrowsAsync(new CartItemNotFoundException());
 
-            await Assert.ThrowsAsync<CartItemNotFoundExcepiton>(() => _cartItemService.GetByIdAsync(1));
+            await Assert.ThrowsAsync<CartItemNotFoundException>(() => _cartItemService.GetByIdAsync(1));
 
             _mockCartItemRepo.Verify(repo => repo.GetByIdAsync(1), Times.Once);
         }

@@ -6,7 +6,7 @@ namespace Ecommerce.Infrastructure.Services
     {
         private readonly IWebHostEnvironment _environment = environment;
 
-        public async Task<string> SaveFileAsync(IFormFile file, string directory)
+        public async Task<string> SaveFileAsync(IFormFile file, string prefix)
         {
             if (file == null || file.Length == 0)
             {
@@ -15,7 +15,7 @@ namespace Ecommerce.Infrastructure.Services
 
             var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
 
-            var uploadsFolderPath = Path.Combine(_environment.WebRootPath, directory);
+            var uploadsFolderPath = Path.Combine(_environment.WebRootPath, prefix);
 
             if (!Directory.Exists(uploadsFolderPath))
             {
@@ -29,7 +29,7 @@ namespace Ecommerce.Infrastructure.Services
                 await file.CopyToAsync(stream);
             }
 
-            return Path.Combine(directory, uniqueFileName);
+            return Path.Combine(prefix, uniqueFileName);
         }
 
         public async Task DeleteFileAsync(string path)

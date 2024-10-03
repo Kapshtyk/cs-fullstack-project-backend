@@ -62,7 +62,7 @@ namespace Ecommerce.Services.Common
             try
             {
                 var cachedResult = await GetEntityFromCache(key);
-                if (cachedResult != null)
+                if (!EqualityComparer<TReadDto>.Default.Equals(cachedResult, default(TReadDto)))
                 {
                     return cachedResult;
                 }
