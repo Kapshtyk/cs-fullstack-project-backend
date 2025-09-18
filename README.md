@@ -13,10 +13,6 @@ Crazy Shop is a modern web application designed to manage e-commerce operations.
 
 [Frontend repo link](https://github.com/Kapshtyk/fs18_CSharp_FullStack_Frontend/tree/main)
 
-Admin credentials: 
-   - email: test@user.com
-   - password: sygxy2-cuxteb-maJcaq
-
 ## Table of Contents
 
 - [Overview](#overview)
