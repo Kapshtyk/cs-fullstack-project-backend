@@ -11,10 +11,6 @@
 
 Crazy Shop is a modern web application designed to manage e-commerce operations. It includes functionalities for creating, reading, updating and deleting categories, products, users and other entities necessary for an online shop.
 
-[Live link](http://98.71.25.4/swagger/index.html)
-
-[Frontend link](https://crazy-shop-kapshtyk-projects.vercel.app/)
-
 [Frontend repo link](https://github.com/Kapshtyk/fs18_CSharp_FullStack_Frontend/tree/main)
 
 Admin credentials: 
